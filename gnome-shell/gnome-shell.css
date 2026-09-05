@@ -1,0 +1,416 @@
+/* milknome shell — Tailwind Neutral + GNOME Settings accent
+ * Default Adwaita/Yaru stays underneath. !important is required
+ * to override user-agent !important rules in the default stylesheet.
+ *
+ * Radii follow GTK4, slightly softer. Nested corners use
+ * inner = outer - padding: popover 16, card 12, control 10.
+ * Action fills use -st-accent-color from org.gnome.desktop.interface.
+ */
+
+stage {
+  color: #fafafa;
+}
+
+#panel {
+  background-color: #0a0a0a;
+  color: #fafafa;
+}
+
+#panel:overview,
+#panel.unlock-screen,
+#panel.login-screen {
+  background-color: transparent;
+}
+
+#panel .panel-button {
+  color: #fafafa;
+  border-radius: 10px !important;
+}
+
+#panel .panel-button#panelActivities .workspace-dot {
+  border-radius: 10px !important;
+}
+
+.popup-menu {
+  color: #fafafa;
+}
+
+.datemenu-popover,
+.quick-settings,
+.popup-menu-content,
+.candidate-popup-content,
+.notification-banner,
+.auth-notification-banner {
+  background-color: #101011 !important;
+  color: #fafafa !important;
+  border: 1px solid #080809 !important;
+  border-radius: 16px !important;
+  box-shadow: none !important;
+}
+
+.popup-menu-item {
+  border-radius: 10px !important;
+}
+
+.popup-menu-item:hover,
+.popup-menu-item:selected,
+.popup-menu-item:checked,
+.popup-menu-item:active {
+  color: #fafafa;
+  background-color: #1e1e1e;
+}
+
+.popup-separator-menu-item,
+.popup-separator-menu-item .popup-separator-menu-item-separator,
+.popup-sub-menu .popup-separator-menu-item .popup-separator-menu-item-separator {
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.modal-dialog {
+  background-color: #1e1e1e;
+  color: #fafafa;
+  border-radius: 16px !important;
+}
+
+.osd-window,
+.switcher-list,
+.resize-popup,
+.workspace-switcher,
+.screenshot-ui-panel,
+#LookingGlassDialog {
+  color: #fafafa;
+  background-color: #1e1e1e;
+  border-color: #242424;
+  border-radius: 16px !important;
+}
+
+#dash .dash-background {
+  background-color: #141414;
+  border-radius: 16px !important;
+}
+
+.app-folder-dialog {
+  background-color: #141414;
+  color: #fafafa;
+  border-radius: 16px !important;
+}
+
+.search-entry,
+.login-dialog StEntry,
+.unlock-dialog StEntry {
+  background-color: #111111;
+  color: #fafafa;
+  border-radius: 10px !important;
+}
+
+/* Quick settings tiles */
+.quick-toggle,
+.quick-toggle-has-menu .quick-toggle,
+.quick-toggle-has-menu .quick-toggle-menu-button {
+  background-color: #1e1e1e !important;
+  color: #fafafa !important;
+  border-radius: 10px !important;
+}
+
+.quick-toggle-has-menu .quick-toggle:ltr {
+  border-radius: 10px 0 0 10px !important;
+}
+
+.quick-toggle-has-menu .quick-toggle:rtl {
+  border-radius: 0 10px 10px 0 !important;
+}
+
+.quick-toggle-has-menu .quick-toggle:ltr:last-child,
+.quick-toggle-has-menu .quick-toggle:rtl:last-child {
+  border-radius: 10px !important;
+}
+
+.quick-toggle-has-menu .quick-toggle-menu-button:ltr {
+  border-radius: 0 10px 10px 0 !important;
+}
+
+.quick-toggle-has-menu .quick-toggle-menu-button:rtl {
+  border-radius: 10px 0 0 10px !important;
+}
+
+.quick-toggle:hover,
+.quick-toggle-has-menu .quick-toggle:hover,
+.quick-toggle-has-menu .quick-toggle-menu-button:hover {
+  background-color: #262626 !important;
+}
+
+.quick-settings-system-item .icon-button,
+.quick-settings-system-item .button {
+  background-color: #1e1e1e !important;
+  color: #fafafa !important;
+  border-radius: 10px !important;
+}
+
+.quick-settings-system-item .icon-button:hover,
+.quick-settings-system-item .button:hover {
+  background-color: #262626 !important;
+}
+
+.quick-settings-system-item .icon-button:active,
+.quick-settings-system-item .button:active {
+  background-color: #2a2a2a !important;
+}
+
+.quick-toggle:checked,
+.quick-toggle-has-menu:checked .quick-toggle,
+.quick-toggle-has-menu .quick-toggle:checked,
+.quick-toggle-has-menu .quick-toggle-menu-button:checked {
+  background-color: -st-accent-color !important;
+  color: -st-accent-fg-color !important;
+}
+
+.quick-toggle:checked:hover,
+.quick-toggle-has-menu:checked .quick-toggle:hover,
+.quick-toggle-has-menu .quick-toggle:checked:hover,
+.quick-toggle-has-menu .quick-toggle-menu-button:checked:hover {
+  background-color: st-lighten(-st-accent-color, 5%) !important;
+  color: -st-accent-fg-color !important;
+}
+
+.quick-toggle:checked:active,
+.quick-toggle-has-menu:checked .quick-toggle:active,
+.quick-toggle-has-menu .quick-toggle:checked:active,
+.quick-toggle-has-menu .quick-toggle-menu-button:checked:active {
+  background-color: st-darken(-st-accent-color, 4%) !important;
+  color: -st-accent-fg-color !important;
+}
+
+.quick-toggle-has-menu .quick-toggle-separator {
+  background-color: #1c1c1c !important;
+}
+
+.quick-toggle-has-menu:checked .quick-toggle-separator {
+  background-color: st-lighten(-st-accent-color, 8%) !important;
+}
+
+.quick-toggle-menu {
+  background-color: #1c1c1c !important;
+  color: #fafafa !important;
+  border-radius: 12px !important;
+}
+
+.quick-toggle-menu .header .icon {
+  border-radius: 10px !important;
+}
+
+.quick-slider .slider-bin {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-radius: 10px !important;
+}
+
+.slider {
+  -barlevel-background-color: #404040;
+  -barlevel-active-background-color: -st-accent-color;
+}
+
+.osd-window .level {
+  -barlevel-background-color: #404040;
+  -barlevel-active-background-color: -st-accent-color;
+}
+
+.button,
+.icon-button {
+  border-radius: 10px !important;
+}
+
+/* Date menu: notifications | calendar */
+.message-list {
+  color: #fafafa;
+  border-color: #1c1c1c !important;
+}
+
+.message-list:ltr {
+  border-right-color: #1c1c1c !important;
+}
+
+.message-list:rtl {
+  border-left-color: #1c1c1c !important;
+}
+
+.message-list-placeholder {
+  color: #737373;
+}
+
+.message-list-controls .message-list-clear-button {
+  border-radius: 10px !important;
+}
+
+.message-view .message {
+  border-radius: 12px !important;
+}
+
+/* Stacked notifications — each layer a distinct neutral */
+.message {
+  color: #fafafa !important;
+  background-color: #1e1e1e !important;
+  border: none !important;
+  border-radius: 12px !important;
+}
+
+.message:hover {
+  background-color: #262626 !important;
+  border: none !important;
+}
+
+.message:second-in-stack {
+  background-color: #181818 !important;
+  border: none !important;
+}
+
+.message:lower-in-stack {
+  background-color: #151515 !important;
+  border: none !important;
+}
+
+.message .message-header,
+.message .message-header .event-time {
+  color: #a3a3a3;
+}
+
+.message-notification-group .message-collapse-button {
+  color: #fafafa;
+  background-color: #333333;
+  border-radius: 10px !important;
+}
+
+.message .message-header .message-expand-button,
+.message .message-header .message-close-button {
+  border-radius: 10px !important;
+}
+
+/* Top-of-screen banners share the same chrome as the date menu / QS. */
+.notification-banner,
+.notification-banner.message,
+.auth-notification-banner {
+  background-color: #141414 !important;
+  color: #fafafa !important;
+  border: 1px solid #0f0f0f !important;
+  border-radius: 16px !important;
+  box-shadow: none !important;
+}
+
+.notification-banner:hover,
+.notification-banner.message:hover {
+  background-color: #1c1c1c !important;
+  border: 1px solid #0f0f0f !important;
+  box-shadow: none !important;
+}
+
+/* Calendar column */
+.datemenu-calendar-column,
+.calendar,
+.datemenu-today-button {
+  color: #fafafa !important;
+  background-color: transparent !important;
+}
+
+.datemenu-today-button {
+  border-radius: 12px !important;
+}
+
+.datemenu-today-button:hover,
+.calendar:hover {
+  background-color: transparent !important;
+}
+
+.calendar .calendar-month-header .calendar-month-label {
+  color: #fafafa !important;
+  border-radius: 10px !important;
+}
+
+.calendar .calendar-month-header .pager-button {
+  border-radius: 10px !important;
+}
+
+.calendar .calendar-day,
+.calendar .calendar-day-heading {
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: #fafafa !important;
+  border-radius: 10px !important;
+}
+
+.calendar .calendar-day:hover,
+.calendar .calendar-day:focus,
+.calendar .calendar-day-heading:hover {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.calendar .calendar-day.calendar-weekend {
+  color: #ff9f0a !important;
+  background-color: transparent !important;
+}
+
+.calendar .calendar-day.calendar-other-month {
+  color: #525252 !important;
+  background-color: transparent !important;
+}
+
+.calendar .calendar-day.calendar-other-month.calendar-weekend {
+  color: #6b4e1e !important;
+  background-color: transparent !important;
+}
+
+.calendar .calendar-day.calendar-today,
+.calendar .calendar-day.calendar-today.calendar-weekend,
+.calendar .calendar-day.calendar-today.calendar-other-month {
+  background-color: -st-accent-color !important;
+  color: -st-accent-fg-color !important;
+}
+
+.calendar .calendar-day.calendar-today:hover,
+.calendar .calendar-day.calendar-today.calendar-weekend:hover,
+.calendar .calendar-day.calendar-today.calendar-other-month:hover {
+  background-color: st-lighten(-st-accent-color, 5%) !important;
+  color: -st-accent-fg-color !important;
+}
+
+.calendar .calendar-day.calendar-today:active,
+.calendar .calendar-day.calendar-today.calendar-weekend:active,
+.calendar .calendar-day.calendar-today.calendar-other-month:active {
+  background-color: st-darken(-st-accent-color, 4%) !important;
+  color: -st-accent-fg-color !important;
+}
+
+.calendar .calendar-week-number {
+  background-color: transparent !important;
+  color: #737373 !important;
+  border-radius: 8px !important;
+}
+
+.events-button,
+.world-clocks-button,
+.weather-button {
+  color: #fafafa !important;
+  background-color: #1e1e1e !important;
+  border-color: #242424 !important;
+  border-radius: 12px !important;
+}
+
+.events-button:hover,
+.world-clocks-button:hover,
+.weather-button:hover {
+  background-color: #262626 !important;
+}
+
+.events-button .events-box .events-title,
+.events-button .events-box .events-list .event-box .event-time,
+.events-button .events-box .events-list .event-placeholder,
+.world-clocks-button .world-clocks-header,
+.world-clocks-button .world-clocks-grid .world-clocks-timezone,
+.weather-button .weather-box .weather-header-box .weather-header {
+  color: #a3a3a3 !important;
+}

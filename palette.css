@@ -1,0 +1,93 @@
+/* milknome — expanded Tailwind Neutral.
+ * Official: 50 100 200 300 400 500 600 700 800 900 950
+ * Extra:    0 25 75 150 250 350 450 550 650 750 850 875 925 975 1000
+ */
+
+:root {
+  --neutral-0: #ffffff;
+  --neutral-25: #fcfcfc;
+  --neutral-50: #fafafa;
+  --neutral-75: #f7f7f7;
+  --neutral-100: #f5f5f5;
+  --neutral-150: #ededed;
+  --neutral-200: #e5e5e5;
+  --neutral-250: #dcdcdc;
+  --neutral-300: #d4d4d4;
+  --neutral-350: #bcbcbc;
+  --neutral-400: #a3a3a3;
+  --neutral-450: #8b8b8b;
+  --neutral-500: #737373;
+  --neutral-550: #626262;
+  --neutral-600: #525252;
+  --neutral-650: #494949;
+  --neutral-700: #404040;
+  --neutral-750: #333333;
+  --neutral-800: #262626;
+  --neutral-850: #1e1e1e;
+  --neutral-875: #1b1b1b;
+  --neutral-900: #171717;
+  --neutral-925: #111111;
+  --neutral-950: #0a0a0a;
+  --neutral-975: #050505;
+  --neutral-1000: #000000;
+
+  --window-bg-color: var(--neutral-900);
+  --window-fg-color: var(--neutral-50);
+
+  --view-bg-color: var(--neutral-925);
+  --view-fg-color: var(--neutral-50);
+
+  --headerbar-bg-color: var(--neutral-850);
+  --headerbar-fg-color: var(--neutral-50);
+  --headerbar-backdrop-color: var(--neutral-900);
+  --headerbar-border-color: var(--neutral-850);
+  --headerbar-shade-color: rgb(0 0 0 / 40%);
+  --headerbar-darker-shade-color: rgb(0 0 0 / 70%);
+
+  --border-color: var(--neutral-850);
+  --border-muted: var(--neutral-875);
+
+  --sidebar-bg-color: #151515;
+  --sidebar-fg-color: var(--neutral-50);
+  --sidebar-backdrop-color: #121212;
+  --sidebar-border-color: var(--neutral-875);
+  --sidebar-shade-color: rgb(0 0 0 / 28%);
+
+  --secondary-sidebar-bg-color: var(--neutral-925);
+  --secondary-sidebar-fg-color: var(--neutral-50);
+  --secondary-sidebar-backdrop-color: var(--neutral-950);
+  --secondary-sidebar-border-color: var(--neutral-875);
+  --secondary-sidebar-shade-color: rgb(0 0 0 / 28%);
+
+  --card-bg-color: var(--neutral-800);
+  --card-fg-color: var(--neutral-50);
+  --card-shade-color: rgb(0 0 0 / 36%);
+
+  --popover-bg-color: var(--neutral-800);
+  --popover-fg-color: var(--neutral-50);
+  --popover-shade-color: rgb(0 0 0 / 28%);
+
+  --dialog-bg-color: var(--neutral-800);
+  --dialog-fg-color: var(--neutral-50);
+
+  --overview-bg-color: var(--neutral-925);
+  --overview-fg-color: var(--neutral-50);
+  --thumbnail-bg-color: var(--neutral-800);
+  --thumbnail-fg-color: var(--neutral-50);
+
+  /* Action color is GNOME Settings accent. Do not override --accent-*. */
+  --primary: var(--accent-bg-color);
+  --primary-hover: var(--accent-color);
+  --primary-fg: var(--accent-fg-color);
+
+  --warning: #ff9f0a;
+  --warning-hover: #ffb340;
+  --warning-muted: #6b4e1e;
+  --warning-fg: #171717;
+  --warning-bg-color: var(--warning);
+  --warning-fg-color: var(--warning-fg);
+  --warning-color: var(--warning);
+
+  --shade-color: rgb(0 0 0 / 28%);
+  --scrollbar-outline-color: rgb(0 0 0 / 50%);
+}

@@ -1,0 +1,23 @@
+/* GTK3 — Tailwind Neutral (same hex values as palette.css). */
+
+@define-color window_bg_color #171717;
+@define-color window_fg_color #fafafa;
+@define-color view_bg_color #111111;
+@define-color view_fg_color #fafafa;
+@define-color headerbar_bg_color #1e1e1e;
+@define-color headerbar_fg_color #fafafa;
+@define-color headerbar_backdrop_color #171717;
+@define-color sidebar_bg_color #151515;
+@define-color warning_color #ff9f0a;
+@define-color warning_bg_color #ff9f0a;
+@define-color warning_fg_color #171717;
+@define-color sidebar_fg_color #fafafa;
+@define-color card_bg_color #262626;
+@define-color popover_bg_color #262626;
+@define-color popover_fg_color #fafafa;
+@define-color dialog_bg_color #262626;
+@define-color dialog_fg_color #fafafa;
+@define-color theme_bg_color #171717;
+@define-color theme_fg_color #fafafa;
+@define-color theme_base_color #111111;
+@define-color theme_text_color #fafafa;

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=milknome
+Comment=Dark overlay for GNOME 50–51
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Adwaita
+IconTheme=Yaru
+CursorTheme=Adwaita
+ButtonLayout=:close
