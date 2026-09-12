@@ -1,10 +1,10 @@
-/* milknome shell — Tailwind Neutral + GNOME Settings accent
+/* milknome shell — Tailwind Neutral
  * Default Adwaita/Yaru stays underneath. !important is required
  * to override user-agent !important rules in the default stylesheet.
  *
  * Radii follow GTK4, slightly softer. Nested corners use
  * inner = outer - padding: popover 16, card 12, control 10.
- * Action fills use -st-accent-color from org.gnome.desktop.interface.
+ * Action fills use Tailwind Neutral 600 on dark chrome.
  */
 
 stage {
@@ -161,36 +161,119 @@ stage {
   background-color: #222222 !important;
 }
 
+.quick-settings-system-item > StBoxLayout {
+  spacing: 6px !important;
+}
+
+/* The battery item reuses QuickToggle, but belongs to the system row.
+ * Keep it free of the icon box and tile sizing used by settings toggles. */
+.quick-settings-system-item .power-item {
+  min-height: 0 !important;
+}
+
+.quick-settings-system-item .power-item > StBoxLayout,
+.quick-settings-system-item .power-item:ltr > StBoxLayout,
+.quick-settings-system-item .power-item:rtl > StBoxLayout {
+  padding: 0 12px !important;
+}
+
+.quick-settings-system-item .power-item .quick-toggle-icon {
+  background-color: transparent !important;
+  color: #fafafa !important;
+  border-radius: 0 !important;
+  icon-size: 16px !important;
+  -st-natural-width: 16px;
+  -st-natural-height: 16px;
+  min-width: 16px !important;
+  min-height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  padding: 0 !important;
+}
+
 .quick-toggle:checked,
 .quick-toggle-has-menu:checked .quick-toggle,
 .quick-toggle-has-menu .quick-toggle:checked,
 .quick-toggle-has-menu .quick-toggle-menu-button:checked {
-  background-color: -st-accent-color !important;
-  color: -st-accent-fg-color !important;
+  background-color: #181818 !important;
+  color: #fafafa !important;
 }
 
 .quick-toggle:checked:hover,
 .quick-toggle-has-menu:checked .quick-toggle:hover,
 .quick-toggle-has-menu .quick-toggle:checked:hover,
 .quick-toggle-has-menu .quick-toggle-menu-button:checked:hover {
-  background-color: st-lighten(-st-accent-color, 5%) !important;
-  color: -st-accent-fg-color !important;
+  background-color: #1e1e1e !important;
+  color: #fafafa !important;
 }
 
 .quick-toggle:checked:active,
 .quick-toggle-has-menu:checked .quick-toggle:active,
 .quick-toggle-has-menu .quick-toggle:checked:active,
 .quick-toggle-has-menu .quick-toggle-menu-button:checked:active {
-  background-color: st-darken(-st-accent-color, 4%) !important;
-  color: -st-accent-fg-color !important;
+  background-color: #222222 !important;
+  color: #fafafa !important;
 }
 
-.quick-toggle-has-menu .quick-toggle-separator {
-  background-color: #151515 !important;
+.quick-toggle,
+.quick-toggle-has-menu {
+  min-height: 44px;
 }
 
+.quick-toggle.button {
+  padding: 0 !important;
+}
+
+.quick-toggle > StBoxLayout,
+.quick-toggle:ltr > StBoxLayout,
+.quick-toggle:rtl > StBoxLayout,
+.quick-toggle-has-menu .quick-toggle > StBoxLayout,
+.quick-toggle-has-menu .quick-toggle:ltr > StBoxLayout,
+.quick-toggle-has-menu .quick-toggle:rtl > StBoxLayout {
+  padding: 10px !important;
+  spacing: 8px;
+}
+
+.quick-toggle .quick-toggle-icon,
+.quick-toggle-has-menu .quick-toggle .quick-toggle-icon {
+  background-color: #222222 !important;
+  color: #737373 !important;
+  border-radius: 6px !important;
+  icon-size: 16px !important;
+  -st-natural-width: 24px;
+  -st-natural-height: 24px;
+  min-width: 24px !important;
+  min-height: 24px !important;
+  max-width: 24px !important;
+  max-height: 24px !important;
+  padding: 4px !important;
+}
+
+.quick-toggle:checked .quick-toggle-icon,
+.quick-toggle-has-menu:checked .quick-toggle .quick-toggle-icon,
+.quick-toggle-has-menu .quick-toggle:checked .quick-toggle-icon {
+  background-color: #373737 !important;
+  color: #fafafa !important;
+}
+
+/* Unchecked means inactive here; :insensitive means unavailable/disabled. */
+.quick-toggle .quick-toggle-title,
+.quick-toggle .quick-toggle-subtitle {
+  color: #737373 !important;
+}
+
+.quick-toggle:checked .quick-toggle-title,
+.quick-toggle:checked .quick-toggle-subtitle,
+.quick-toggle-has-menu:checked .quick-toggle-title,
+.quick-toggle-has-menu:checked .quick-toggle-subtitle,
+.quick-settings-system-item .power-item .quick-toggle-title,
+.quick-settings-system-item .power-item .quick-toggle-subtitle {
+  color: #fafafa !important;
+}
+
+.quick-toggle-has-menu .quick-toggle-separator,
 .quick-toggle-has-menu:checked .quick-toggle-separator {
-  background-color: st-lighten(-st-accent-color, 8%) !important;
+  background-color: #151515 !important;
 }
 
 .quick-toggle-menu {
@@ -203,20 +286,80 @@ stage {
   border-radius: 10px !important;
 }
 
+.quick-toggle-menu .header .icon.active {
+  background-color: #525252 !important;
+  color: #fafafa !important;
+}
+
+.quick-settings {
+  font-weight: 400 !important;
+}
+
+.quick-toggle .quick-toggle-title,
+.quick-settings-system-item,
+.quick-slider {
+  font-weight: 500 !important;
+}
+
+/* Box that wraps the whole volume row (icons + bar). */
+.quick-slider {
+  background-color: #181818 !important;
+  border-radius: 10px !important;
+  padding: 0 2px !important;
+  min-height: 36px;
+}
+
+.quick-slider > StBoxLayout {
+  spacing: 4px;
+}
+
+/* Speaker / output icons on the sides of the volume row. */
+.quick-slider .icon-button {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-radius: 10px !important;
+  padding: 8px !important;
+}
+
+.quick-slider .icon-button:hover {
+  background-color: transparent !important;
+}
+
+/* Inner holder around the volume bar. Not the bar itself. */
 .quick-slider .slider-bin {
   background-color: transparent !important;
   box-shadow: none !important;
   border-radius: 10px !important;
+  padding: 8px 0 !important;
+}
+
+/* Volume bar: empty track + growing fill. `color` tints the dot. */
+.quick-slider .slider {
+  color: #fafafa !important;
+  -barlevel-height: 20px;
+  -barlevel-background-color: #181818;
+  -barlevel-active-background-color: #222222;
+  /* Shell uses this radius for the handle position and half the bar height
+   * for the fill position. Matching both keeps the handle centered on the
+   * rounded value cap, including at 0% and 100%. */
+  -slider-handle-radius: 10px;
+  transition-duration: 180ms;
+}
+
+.quick-slider .slider:focus,
+.quick-slider .slider-bin:focus .slider {
+  color: #564141 !important; /* Dot while dragging / focused. */
+  -barlevel-active-background-color: #525252 !important;
 }
 
 .slider {
   -barlevel-background-color: #2a2a2a;
-  -barlevel-active-background-color: -st-accent-color;
+  -barlevel-active-background-color: #525252;
 }
 
 .osd-window .level {
   -barlevel-background-color: #2a2a2a;
-  -barlevel-active-background-color: -st-accent-color;
+  -barlevel-active-background-color: #525252;
 }
 
 .button,
@@ -228,6 +371,7 @@ stage {
 .message-list {
   color: #fafafa;
   border-color: #151515 !important;
+  font-weight: 400 !important;
 }
 
 .message-list:ltr {
@@ -243,7 +387,19 @@ stage {
 }
 
 .message-list-controls .message-list-clear-button {
+  color: #fafafa !important;
+  background-color: #181818 !important;
   border-radius: 10px !important;
+  font-weight: 500 !important;
+}
+
+.message-list-controls .message-list-clear-button:hover,
+.message-list-controls .message-list-clear-button:focus {
+  background-color: #1e1e1e !important;
+}
+
+.message-list-controls .message-list-clear-button:active {
+  background-color: #222222 !important;
 }
 
 .message-view .message {
@@ -256,6 +412,7 @@ stage {
   background-color: #181818 !important;
   border: none !important;
   border-radius: 12px !important;
+  font-weight: 400 !important;
 }
 
 .message:hover {
@@ -278,15 +435,55 @@ stage {
   color: #a3a3a3;
 }
 
+.message .message-header {
+  spacing: 4px;
+}
+
+.message .message-header .message-source-title,
+.message .message-box .message-content .message-title,
+.message-notification-group .message-group-title {
+  font-weight: 500 !important;
+  color: #fafafa !important;
+}
+
+.message .message-box .message-content .message-body {
+  color: #a3a3a3 !important;
+}
+
 .message-notification-group .message-collapse-button {
-  color: #fafafa;
-  background-color: #222222;
+  color: #fafafa !important;
+  background-color: #222222 !important;
   border-radius: 10px !important;
+}
+
+.message-notification-group .message-collapse-button:hover,
+.message-notification-group .message-collapse-button:focus {
+  background-color: #2a2a2a !important;
+}
+
+.message-notification-group .message-collapse-button:active {
+  background-color: #333333 !important;
 }
 
 .message .message-header .message-expand-button,
 .message .message-header .message-close-button {
+  color: #fafafa !important;
+  background-color: #222222 !important;
   border-radius: 10px !important;
+  padding: 6px !important;
+  margin: 0 !important;
+}
+
+.message .message-header .message-expand-button:hover,
+.message .message-header .message-close-button:hover,
+.message .message-header .message-expand-button:focus,
+.message .message-header .message-close-button:focus {
+  background-color: #2a2a2a !important;
+}
+
+.message .message-header .message-expand-button:active,
+.message .message-header .message-close-button:active {
+  background-color: #333333 !important;
 }
 
 /* Top-of-screen banners share the same chrome as the date menu / QS. */
@@ -313,6 +510,13 @@ stage {
 .datemenu-today-button {
   color: #fafafa !important;
   background-color: transparent !important;
+  font-weight: 400 !important;
+}
+
+.datemenu-today-button .day-label,
+.datemenu-today-button .date-label,
+.calendar .calendar-month-header .calendar-month-label {
+  font-weight: 500 !important;
 }
 
 .datemenu-today-button {
@@ -352,6 +556,7 @@ stage {
   box-shadow: none !important;
   color: #fafafa !important;
   border-radius: 10px !important;
+  font-weight: 400 !important;
 }
 
 .calendar .calendar-day:hover,
@@ -379,28 +584,29 @@ stage {
 .calendar .calendar-day.calendar-today,
 .calendar .calendar-day.calendar-today.calendar-weekend,
 .calendar .calendar-day.calendar-today.calendar-other-month {
-  background-color: -st-accent-color !important;
-  color: -st-accent-fg-color !important;
+  background-color: #525252 !important;
+  color: #fafafa !important;
 }
 
 .calendar .calendar-day.calendar-today:hover,
 .calendar .calendar-day.calendar-today.calendar-weekend:hover,
 .calendar .calendar-day.calendar-today.calendar-other-month:hover {
-  background-color: st-lighten(-st-accent-color, 5%) !important;
-  color: -st-accent-fg-color !important;
+  background-color: #737373 !important;
+  color: #fafafa !important;
 }
 
 .calendar .calendar-day.calendar-today:active,
 .calendar .calendar-day.calendar-today.calendar-weekend:active,
 .calendar .calendar-day.calendar-today.calendar-other-month:active {
-  background-color: st-darken(-st-accent-color, 4%) !important;
-  color: -st-accent-fg-color !important;
+  background-color: #404040 !important;
+  color: #fafafa !important;
 }
 
 .calendar .calendar-week-number {
   background-color: transparent !important;
   color: #737373 !important;
   border-radius: 8px !important;
+  font-weight: 400 !important;
 }
 
 .events-button,
@@ -425,4 +631,9 @@ stage {
 .world-clocks-button .world-clocks-grid .world-clocks-timezone,
 .weather-button .weather-box .weather-header-box .weather-header {
   color: #a3a3a3 !important;
+  font-weight: 500 !important;
+}
+
+.events-button .events-box .events-list .event-box .event-summary {
+  font-weight: 400 !important;
 }

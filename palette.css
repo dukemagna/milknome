@@ -75,10 +75,12 @@
   --thumbnail-bg-color: var(--neutral-800);
   --thumbnail-fg-color: var(--neutral-50);
 
-  /* Action color is GNOME Settings accent. Do not override --accent-*. */
-  --primary: var(--accent-bg-color);
-  --primary-hover: var(--accent-color);
-  --primary-fg: var(--accent-fg-color);
+  --accent-bg-color: var(--neutral-600);
+  --accent-color: var(--neutral-500);
+  --accent-fg-color: #fafafa;
+  --primary: var(--neutral-600);
+  --primary-hover: var(--neutral-500);
+  --primary-fg: #fafafa;
 
   --warning: #ff9f0a;
   --warning-hover: #ffb340;
