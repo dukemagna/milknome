@@ -57,7 +57,7 @@ stage {
 .popup-menu-item:checked,
 .popup-menu-item:active {
   color: #fafafa;
-  background-color: #1e1e1e;
+  background-color: #181818;
 }
 
 .popup-separator-menu-item,
@@ -72,7 +72,7 @@ stage {
 }
 
 .modal-dialog {
-  background-color: #1e1e1e;
+  background-color: #181818;
   color: #fafafa;
   border-radius: 16px !important;
 }
@@ -84,8 +84,8 @@ stage {
 .screenshot-ui-panel,
 #LookingGlassDialog {
   color: #fafafa;
-  background-color: #1e1e1e;
-  border-color: #242424;
+  background-color: #181818;
+  border-color: #1c1c1c;
   border-radius: 16px !important;
 }
 
@@ -112,7 +112,7 @@ stage {
 .quick-toggle,
 .quick-toggle-has-menu .quick-toggle,
 .quick-toggle-has-menu .quick-toggle-menu-button {
-  background-color: #1e1e1e !important;
+  background-color: #181818 !important;
   color: #fafafa !important;
   border-radius: 10px !important;
 }
@@ -141,24 +141,24 @@ stage {
 .quick-toggle:hover,
 .quick-toggle-has-menu .quick-toggle:hover,
 .quick-toggle-has-menu .quick-toggle-menu-button:hover {
-  background-color: #262626 !important;
+  background-color: #1e1e1e !important;
 }
 
 .quick-settings-system-item .icon-button,
 .quick-settings-system-item .button {
-  background-color: #1e1e1e !important;
+  background-color: #181818 !important;
   color: #fafafa !important;
   border-radius: 10px !important;
 }
 
 .quick-settings-system-item .icon-button:hover,
 .quick-settings-system-item .button:hover {
-  background-color: #262626 !important;
+  background-color: #1e1e1e !important;
 }
 
 .quick-settings-system-item .icon-button:active,
 .quick-settings-system-item .button:active {
-  background-color: #2a2a2a !important;
+  background-color: #222222 !important;
 }
 
 .quick-toggle:checked,
@@ -186,7 +186,7 @@ stage {
 }
 
 .quick-toggle-has-menu .quick-toggle-separator {
-  background-color: #1c1c1c !important;
+  background-color: #151515 !important;
 }
 
 .quick-toggle-has-menu:checked .quick-toggle-separator {
@@ -194,7 +194,7 @@ stage {
 }
 
 .quick-toggle-menu {
-  background-color: #1c1c1c !important;
+  background-color: #151515 !important;
   color: #fafafa !important;
   border-radius: 12px !important;
 }
@@ -210,12 +210,12 @@ stage {
 }
 
 .slider {
-  -barlevel-background-color: #404040;
+  -barlevel-background-color: #2a2a2a;
   -barlevel-active-background-color: -st-accent-color;
 }
 
 .osd-window .level {
-  -barlevel-background-color: #404040;
+  -barlevel-background-color: #2a2a2a;
   -barlevel-active-background-color: -st-accent-color;
 }
 
@@ -227,15 +227,15 @@ stage {
 /* Date menu: notifications | calendar */
 .message-list {
   color: #fafafa;
-  border-color: #1c1c1c !important;
+  border-color: #151515 !important;
 }
 
 .message-list:ltr {
-  border-right-color: #1c1c1c !important;
+  border-right-color: #151515 !important;
 }
 
 .message-list:rtl {
-  border-left-color: #1c1c1c !important;
+  border-left-color: #151515 !important;
 }
 
 .message-list-placeholder {
@@ -253,23 +253,23 @@ stage {
 /* Stacked notifications — each layer a distinct neutral */
 .message {
   color: #fafafa !important;
-  background-color: #1e1e1e !important;
+  background-color: #181818 !important;
   border: none !important;
   border-radius: 12px !important;
 }
 
 .message:hover {
-  background-color: #262626 !important;
+  background-color: #1e1e1e !important;
   border: none !important;
 }
 
 .message:second-in-stack {
-  background-color: #181818 !important;
+  background-color: #141414 !important;
   border: none !important;
 }
 
 .message:lower-in-stack {
-  background-color: #151515 !important;
+  background-color: #121212 !important;
   border: none !important;
 }
 
@@ -280,7 +280,7 @@ stage {
 
 .message-notification-group .message-collapse-button {
   color: #fafafa;
-  background-color: #333333;
+  background-color: #222222;
   border-radius: 10px !important;
 }
 
@@ -302,7 +302,7 @@ stage {
 
 .notification-banner:hover,
 .notification-banner.message:hover {
-  background-color: #1c1c1c !important;
+  background-color: #161616 !important;
   border: 1px solid #0f0f0f !important;
   box-shadow: none !important;
 }
@@ -324,13 +324,25 @@ stage {
   background-color: transparent !important;
 }
 
-.calendar .calendar-month-header .calendar-month-label {
+.calendar .calendar-month-header {
+  margin-bottom: 12px !important;
+}
+
+.calendar .calendar-month-header .calendar-month-label,
+.calendar .calendar-month-header .pager-button {
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important;
   color: #fafafa !important;
   border-radius: 10px !important;
 }
 
-.calendar .calendar-month-header .pager-button {
-  border-radius: 10px !important;
+.calendar .calendar-month-header .calendar-month-label:hover,
+.calendar .calendar-month-header .pager-button:hover,
+.calendar .calendar-month-header .pager-button:focus {
+  background-color: #181818 !important;
+  box-shadow: none !important;
 }
 
 .calendar .calendar-day,
@@ -395,15 +407,15 @@ stage {
 .world-clocks-button,
 .weather-button {
   color: #fafafa !important;
-  background-color: #1e1e1e !important;
-  border-color: #242424 !important;
+  background-color: #181818 !important;
+  border-color: #1c1c1c !important;
   border-radius: 12px !important;
 }
 
 .events-button:hover,
 .world-clocks-button:hover,
 .weather-button:hover {
-  background-color: #262626 !important;
+  background-color: #1e1e1e !important;
 }
 
 .events-button .events-box .events-title,

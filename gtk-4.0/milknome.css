@@ -34,18 +34,18 @@
   --window-bg-color: var(--neutral-900);
   --window-fg-color: var(--neutral-50);
 
-  --view-bg-color: var(--neutral-925);
+  --view-bg-color: #141414;
   --view-fg-color: var(--neutral-50);
 
   --headerbar-bg-color: var(--neutral-850);
   --headerbar-fg-color: var(--neutral-50);
   --headerbar-backdrop-color: var(--neutral-900);
-  --headerbar-border-color: var(--neutral-850);
+  --headerbar-border-color: #1a1a1a;
   --headerbar-shade-color: rgb(0 0 0 / 40%);
   --headerbar-darker-shade-color: rgb(0 0 0 / 70%);
 
-  --border-color: var(--neutral-850);
-  --border-muted: var(--neutral-875);
+  --border-color: #1a1a1a;
+  --border-muted: #171717;
 
   --sidebar-bg-color: #151515;
   --sidebar-fg-color: var(--neutral-50);
@@ -63,7 +63,7 @@
   --card-fg-color: var(--neutral-50);
   --card-shade-color: rgb(0 0 0 / 36%);
 
-  --popover-bg-color: var(--neutral-800);
+  --popover-bg-color: #101011;
   --popover-fg-color: var(--neutral-50);
   --popover-shade-color: rgb(0 0 0 / 28%);
 
@@ -90,4 +90,50 @@
 
   --shade-color: rgb(0 0 0 / 28%);
   --scrollbar-outline-color: rgb(0 0 0 / 50%);
+}
+
+/* Files / libadwaita menus — match shell popup chrome. */
+popover > arrow {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  border-bottom-width: 0;
+  box-shadow: none;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+popover > contents,
+popover.background > contents,
+popover.menu > contents {
+  background-color: #101011;
+  color: #fafafa;
+  border: 1px solid #080809;
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+popover.menu contents modelbutton,
+popover.menu contents .menuitem,
+popover contents > list > row {
+  border-radius: 10px;
+}
+
+popover.menu contents modelbutton:hover,
+popover.menu contents modelbutton:selected,
+popover.menu contents .menuitem:hover,
+popover contents > list > row:hover,
+popover contents > list > row:selected {
+  background-color: #181818;
+}
+
+popover.menu contents separator,
+popover contents separator {
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  opacity: 0;
 }
