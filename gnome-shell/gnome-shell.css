@@ -4,7 +4,7 @@
  *
  * Radii follow GTK4, slightly softer. Nested corners use
  * inner = outer - padding: popover 16, card 12, control 10.
- * Action fills use Tailwind Neutral 600 on dark chrome.
+ * Action fills use Tailwind Blue 500 on dark chrome.
  */
 
 stage {
@@ -41,9 +41,9 @@ stage {
 .candidate-popup-content,
 .notification-banner,
 .auth-notification-banner {
-  background-color: #101011 !important;
+  background-color: #131313 !important;
   color: #fafafa !important;
-  border: 1px solid #080809 !important;
+  border: 1px solid #101010 !important;
   border-radius: 16px !important;
   box-shadow: none !important;
 }
@@ -252,7 +252,7 @@ stage {
 .quick-toggle:checked .quick-toggle-icon,
 .quick-toggle-has-menu:checked .quick-toggle .quick-toggle-icon,
 .quick-toggle-has-menu .quick-toggle:checked .quick-toggle-icon {
-  background-color: #373737 !important;
+  background-color: #3b82f6 !important;
   color: #fafafa !important;
 }
 
@@ -287,7 +287,7 @@ stage {
 }
 
 .quick-toggle-menu .header .icon.active {
-  background-color: #525252 !important;
+  background-color: #3b82f6 !important;
   color: #fafafa !important;
 }
 
@@ -349,17 +349,17 @@ stage {
 .quick-slider .slider:focus,
 .quick-slider .slider-bin:focus .slider {
   color: #564141 !important; /* Dot while dragging / focused. */
-  -barlevel-active-background-color: #525252 !important;
+  -barlevel-active-background-color: #3b82f6 !important;
 }
 
 .slider {
   -barlevel-background-color: #2a2a2a;
-  -barlevel-active-background-color: #525252;
+  -barlevel-active-background-color: #3b82f6;
 }
 
 .osd-window .level {
   -barlevel-background-color: #2a2a2a;
-  -barlevel-active-background-color: #525252;
+  -barlevel-active-background-color: #3b82f6;
 }
 
 .button,
@@ -410,24 +410,24 @@ stage {
 .message {
   color: #fafafa !important;
   background-color: #181818 !important;
-  border: none !important;
+  border: 1px solid #1c1c1c !important;
   border-radius: 12px !important;
-  font-weight: 400 !important;
+  font-weight: 400 !important; 
 }
 
 .message:hover {
   background-color: #1e1e1e !important;
-  border: none !important;
+  border: 1px solid #212121 !important;
 }
 
 .message:second-in-stack {
-  background-color: #141414 !important;
-  border: none !important;
+  background-color: #161616 !important;
+  border: 1px solid #1a1a1a !important;
 }
 
 .message:lower-in-stack {
-  background-color: #121212 !important;
-  border: none !important;
+  background-color: #141414 !important;
+  border: 1px solid #191919 !important;
 }
 
 .message .message-header,
@@ -584,21 +584,21 @@ stage {
 .calendar .calendar-day.calendar-today,
 .calendar .calendar-day.calendar-today.calendar-weekend,
 .calendar .calendar-day.calendar-today.calendar-other-month {
-  background-color: #525252 !important;
+  background-color: #3b82f6 !important;
   color: #fafafa !important;
 }
 
 .calendar .calendar-day.calendar-today:hover,
 .calendar .calendar-day.calendar-today.calendar-weekend:hover,
 .calendar .calendar-day.calendar-today.calendar-other-month:hover {
-  background-color: #737373 !important;
+  background-color: #60a5fa !important;
   color: #fafafa !important;
 }
 
 .calendar .calendar-day.calendar-today:active,
 .calendar .calendar-day.calendar-today.calendar-weekend:active,
 .calendar .calendar-day.calendar-today.calendar-other-month:active {
-  background-color: #404040 !important;
+  background-color: #2563eb !important;
   color: #fafafa !important;
 }
 

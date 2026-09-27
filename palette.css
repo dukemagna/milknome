@@ -50,7 +50,7 @@
   --sidebar-bg-color: #151515;
   --sidebar-fg-color: var(--neutral-50);
   --sidebar-backdrop-color: #121212;
-  --sidebar-border-color: var(--neutral-875);
+  --sidebar-border-color: #101011;
   --sidebar-shade-color: rgb(0 0 0 / 28%);
 
   --secondary-sidebar-bg-color: var(--neutral-925);
@@ -75,11 +75,11 @@
   --thumbnail-bg-color: var(--neutral-800);
   --thumbnail-fg-color: var(--neutral-50);
 
-  --accent-bg-color: var(--neutral-600);
-  --accent-color: var(--neutral-500);
+  --accent-bg-color: #3b82f6;
+  --accent-color: #60a5fa;
   --accent-fg-color: #fafafa;
-  --primary: var(--neutral-600);
-  --primary-hover: var(--neutral-500);
+  --primary: #3b82f6;
+  --primary-hover: #60a5fa;
   --primary-fg: #fafafa;
 
   --warning: #ff9f0a;
@@ -138,4 +138,12 @@ popover contents separator {
   padding: 0;
   background-color: transparent;
   opacity: 0;
+}
+
+.navigation-sidebar > separator,
+.navigation-sidebar > .header > separator,
+sidebar separator,
+.sidebar separator {
+  background-color: #101011;
+  color: #101011;
 }
