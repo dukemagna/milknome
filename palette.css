@@ -147,3 +147,34 @@ sidebar separator,
   background-color: #101011;
   color: #101011;
 }
+
+/* Minimal empty/error states (Files and other libadwaita apps).
+ * Target the status illustration, never toolbar/file icons or loading spinners. */
+statuspage:not(.spinner) > scrolledwindow > viewport > box {
+  margin: 24px 12px;
+  border-spacing: 16px;
+}
+
+statuspage:not(.spinner) > scrolledwindow > viewport > box > clamp > box {
+  border-spacing: 10px;
+}
+
+statuspage:not(.spinner) > scrolledwindow > viewport > box > clamp > box > .icon {
+  -gtk-icon-size: 32px;
+  color: var(--neutral-500);
+}
+
+statuspage:not(.spinner) > scrolledwindow > viewport > box > clamp > box > box {
+  border-spacing: 6px;
+}
+
+statuspage:not(.spinner) > scrolledwindow > viewport > box > clamp > box > box > .title {
+  font-size: 0.95em;
+  font-weight: 400;
+  color: var(--neutral-400);
+}
+
+statuspage:not(.spinner) > scrolledwindow > viewport > box > clamp > box > box > .description {
+  font-size: 0.9em;
+  font-weight: 400;
+}

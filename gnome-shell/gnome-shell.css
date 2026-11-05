@@ -5,6 +5,8 @@
  * Radii follow GTK4, slightly softer. Nested corners use
  * inner = outer - padding: popover 16, card 12, control 10.
  * Action fills use Tailwind Blue 500 on dark chrome.
+ * Outer surfaces are fully opaque. Transparent child backgrounds reveal
+ * their opaque parent; borders and subtle shadows retain their soft edges.
  */
 
 stage {
@@ -19,7 +21,7 @@ stage {
 #panel:overview,
 #panel.unlock-screen,
 #panel.login-screen {
-  background-color: transparent;
+  background-color: #0a0a0a;
 }
 
 #panel .panel-button {
@@ -38,18 +40,46 @@ stage {
 .datemenu-popover,
 .quick-settings,
 .popup-menu-content,
-.candidate-popup-content,
-.notification-banner,
-.auth-notification-banner {
+.candidate-popup-content {
   background-color: #131313 !important;
   color: #fafafa !important;
-  border: 1px solid #101010 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: 16px !important;
+  box-shadow: none !important;
+}
+
+/* A submenu is painted inside the already tinted outer surface. */
+.popup-sub-menu .popup-menu-content {
+  background-color: #151515 !important;
+  border-radius: 12px !important;
   box-shadow: none !important;
 }
 
 .popup-menu-item {
   border-radius: 10px !important;
+}
+
+/* An expanded menu row joins its submenu; only the outside corners round. */
+.popup-menu-item:checked {
+  border-radius: 10px 10px 0 0 !important;
+}
+
+.popup-sub-menu {
+  background-color: #151515;
+  border-radius: 0 0 10px 10px !important;
+}
+
+.popup-sub-menu .popup-menu-item {
+  border-radius: 0 !important;
+}
+
+.popup-sub-menu .popup-menu-item:last-child,
+.popup-sub-menu .popup-menu-section:last-child .popup-menu-item:last-child {
+  border-radius: 0 0 10px 10px !important;
+}
+
+.popup-sub-menu .popup-menu-section .popup-menu-item:last-child {
+  border-radius: 0 !important;
 }
 
 .popup-menu-item:hover,
@@ -85,7 +115,7 @@ stage {
 #LookingGlassDialog {
   color: #fafafa;
   background-color: #181818;
-  border-color: #1c1c1c;
+  border-color: rgba(255, 255, 255, 0.08);
   border-radius: 16px !important;
 }
 
@@ -109,6 +139,10 @@ stage {
 }
 
 /* Quick settings tiles */
+.quick-toggle-has-menu {
+  border-radius: 10px !important;
+}
+
 .quick-toggle,
 .quick-toggle-has-menu .quick-toggle,
 .quick-toggle-has-menu .quick-toggle-menu-button {
@@ -370,21 +404,31 @@ stage {
 /* Date menu: notifications | calendar */
 .message-list {
   color: #fafafa;
-  border-color: #151515 !important;
+  border-color: #232323 !important;
   font-weight: 400 !important;
 }
 
 .message-list:ltr {
-  border-right-color: #151515 !important;
+  border-right-color: #232323 !important;
 }
 
 .message-list:rtl {
-  border-left-color: #151515 !important;
+  border-left-color: #232323 !important;
 }
 
-.message-list-placeholder {
+/* Quiet empty state, instead of the stock 96px illustration and heading. */
+.message-list .message-list-placeholder {
+  color: #a3a3a3;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+.message-list .message-list-placeholder > StIcon {
+  icon-size: 32px;
+  margin-bottom: 8px;
   color: #737373;
 }
+
 
 .message-list-controls .message-list-clear-button {
   color: #fafafa !important;
@@ -412,7 +456,7 @@ stage {
   background-color: #181818 !important;
   border: 1px solid #1c1c1c !important;
   border-radius: 12px !important;
-  font-weight: 400 !important; 
+  font-weight: 400 !important;
 }
 
 .message:hover {
@@ -492,7 +536,7 @@ stage {
 .auth-notification-banner {
   background-color: #141414 !important;
   color: #fafafa !important;
-  border: 1px solid #0f0f0f !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: 16px !important;
   box-shadow: none !important;
 }
@@ -500,7 +544,7 @@ stage {
 .notification-banner:hover,
 .notification-banner.message:hover {
   background-color: #161616 !important;
-  border: 1px solid #0f0f0f !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
   box-shadow: none !important;
 }
 
@@ -636,4 +680,61 @@ stage {
 
 .events-button .events-box .events-list .event-box .event-summary {
   font-weight: 400 !important;
+}
+
+/* Preserve keyboard focus: the custom slider chrome used to erase Shell's
+ * focus ring. Keep disabled tiles distinct from merely unchecked tiles. */
+.quick-slider .slider-bin:focus,
+.quick-slider .icon-button:focus {
+  box-shadow: inset 0 0 0 2px #3b82f6 !important;
+}
+
+.quick-toggle:insensitive,
+.quick-toggle-has-menu .quick-toggle:insensitive,
+.quick-toggle-has-menu .quick-toggle-menu-button:insensitive {
+  background-color: #151515 !important;
+  color: #737373 !important;
+}
+
+.quick-toggle:insensitive .quick-toggle-icon {
+  background-color: #1c1c1c !important;
+  color: #737373 !important;
+}
+
+.quick-toggle:insensitive .quick-toggle-title,
+.quick-toggle:insensitive .quick-toggle-subtitle {
+  color: #737373 !important;
+}
+
+/* Minimal elevation replaces the stronger inherited surface shadows.
+ * Focus rings on interactive controls remain available for keyboard users. */
+.popup-menu-content,
+.candidate-popup-content,
+.datemenu-popover,
+.quick-settings,
+.quick-toggle-menu,
+.modal-dialog,
+.osd-window,
+.switcher-list,
+.resize-popup,
+.workspace-switcher,
+.screenshot-ui-panel,
+#LookingGlassDialog,
+#dash .dash-background,
+.app-folder-dialog,
+.message,
+.message:hover,
+.notification-banner,
+.notification-banner.message,
+.notification-banner:hover,
+.notification-banner.message:hover,
+.auth-notification-banner {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.10) !important;
+}
+
+/* Nested cards already sit inside a floating surface. */
+.popup-menu-content .message,
+.quick-toggle-menu,
+#panel {
+  box-shadow: none !important;
 }

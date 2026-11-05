@@ -13,18 +13,21 @@ THEME_DEST="${DATA_HOME}/themes/${THEME_NAME}"
 GTK3_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-3.0"
 GTK4_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-4.0"
 FLATPAK=0
+SHELL_ONLY=0
 
 usage() {
   cat <<EOF
-Usage: ./install.sh [--flatpak]
+Usage: ./install.sh [--flatpak] [--shell-only]
 
   --flatpak   Allow Flatpak apps to read gtk-4.0 CSS
+  --shell-only Update Shell without changing GTK or Flatpak settings
 EOF
 }
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --flatpak) FLATPAK=1; shift ;;
+    --shell-only) SHELL_ONLY=1; shift ;;
     -h|--help) usage; exit 0 ;;
     *) echo "Unknown option: $1" >&2; usage; exit 1 ;;
   esac
@@ -143,6 +146,45 @@ EOF
   echo "Shell theme set to: $THEME_NAME"
 }
 
+# Let milknome own surface colors while Blur My Shell supplies the blur.
+# Extension schemas may be private rather than globally installed.
+configure_shell_blur() {
+  local uuid="blur-my-shell@aunetx" schema_dir schema key value
+  local -a settings=(gsettings)
+  if ! command -v gnome-extensions >/dev/null 2>&1 ||
+     ! gnome-extensions list --enabled 2>/dev/null | grep -qx "$uuid"; then
+    return 0
+  fi
+  for schema_dir in "$DATA_HOME/gnome-shell/extensions/$uuid/schemas" "/usr/share/gnome-shell/extensions/$uuid/schemas"; do
+    if [[ -f "$schema_dir/gschemas.compiled" ]]; then
+      settings=(gsettings --schemadir "$schema_dir")
+      break
+    fi
+  done
+  while read -r schema key value; do
+    if "${settings[@]}" list-keys "$schema" 2>/dev/null | grep -qx "$key"; then
+      "${settings[@]}" set "$schema" "$key" "$value"
+    fi
+  done <<EOF
+org.gnome.shell.extensions.blur-my-shell.popup preserve-shell-theme true
+org.gnome.shell.extensions.blur-my-shell.popup override-background false
+org.gnome.shell.extensions.blur-my-shell.popup corner-radius 16
+org.gnome.shell.extensions.blur-my-shell.popup menu-corner-radius 16
+org.gnome.shell.extensions.blur-my-shell.popup candidate-corner-radius 16
+org.gnome.shell.extensions.blur-my-shell.popup quick-settings-corner-radius 16
+org.gnome.shell.extensions.blur-my-shell.popup calendar-corner-radius 16
+org.gnome.shell.extensions.blur-my-shell.popup notification-corner-radius 16
+org.gnome.shell.extensions.blur-my-shell.popup osd-corner-radius 16
+org.gnome.shell.extensions.blur-my-shell.popup osd-window-corner-radius 16
+org.gnome.shell.extensions.blur-my-shell.popup resize-popup-corner-radius 16
+org.gnome.shell.extensions.blur-my-shell.popup dialog-corner-radius 16
+org.gnome.shell.extensions.blur-my-shell.popup submenu-corner-radius 12
+org.gnome.shell.extensions.blur-my-shell.popup rounded-corners 0
+org.gnome.shell.extensions.blur-my-shell.panel override-background false
+EOF
+  echo "Blur My Shell: theme colors preserved; blur corners matched to milknome."
+}
+
 maybe_flatpak() {
   if [[ "$FLATPAK" -ne 1 ]]; then
     if command -v flatpak >/dev/null 2>&1; then
@@ -161,10 +203,13 @@ maybe_flatpak() {
 }
 
 install_shell_theme
-install_gtk_overlays
-enable_dark_skeleton
+if [[ "$SHELL_ONLY" -eq 0 ]]; then
+  install_gtk_overlays
+  enable_dark_skeleton
+  maybe_flatpak
+fi
 enable_user_theme
-maybe_flatpak
+configure_shell_blur
 
 cat <<EOF
 
